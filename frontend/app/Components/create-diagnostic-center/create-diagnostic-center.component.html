@@ -1,0 +1,23 @@
+<div  class="container">
+
+    <div class = "text-center">      
+        <h2 class="display-4"> Enter Diagnostic Center Details </h2>
+    </div>
+    <br>
+
+    <form #form="ngForm" (ngSubmit)="onSubmit()" class="form-group"> 
+        <input type="text" width="20" name="name" [(ngModel)]="center.name" placeholder="Name" class="form-control" value="center.name" required/><br>
+        <input  type="text" width="20"  name="phoneNo" [(ngModel)]="center.contactNo" placeholder="Phone No" class="form-control" value="center.contactNo" required/> <br>
+        <input  type="text" width="20"  name="address" [(ngModel)]="center.address" placeholder="Age" class="form-control" value="center.address" required/> <br>
+        <input  type="text" width="20"  name="contactEmail" [(ngModel)]="center.contactEmail" placeholder="Gender" class="form-control" value="center.contactEmail" required/> <br>
+        
+            <div *ngIf="form.invalid && form.touched"  class="alert alert-danger">
+                Enter Valid Data
+              </div> 
+              <div class="col-md-12 text-center">
+                <button class="btn btn-primary" [disabled]="!form.valid" type="submit"> Submit </button>
+              </div>
+    </form>
+</div>
+
+

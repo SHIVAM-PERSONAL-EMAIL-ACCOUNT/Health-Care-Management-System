@@ -1,0 +1,27 @@
+<div class="container">
+    <h3 class="header">Appointment Details</h3>
+    <table >
+        <tr>
+            <th>Appointment ID</th>
+            <th>Date</th>
+            <th>Status</th>
+            <th>Diagnostic Center Name</th>
+            <th>Diagnostic Test Name</th>
+            <th>Actions</th>
+        </tr>
+        <tr *ngFor="let a of appointments">
+            <td>{{a.id}}</td>
+            <td>{{a.appointmentDate}}</td>
+            <td>{{a.approvalStatus}}</td>
+            <td>{{a.diagnosticCenter.name}}</td>
+            <td>{{a.diagnosticTest.testName}}</td>
+            <td><button type="button" (click)="viewTestResult(a.diagnosticTest.id)">See Test Result</button></td>
+        </tr>
+    </table>
+
+    <br>
+    <br>
+    <br>
+    <button type="button" (click)="updateDetails()">Update Personal Details</button>
+    <button type="button" (click)="bookAppointment()">Book Appointment</button>
+</div>

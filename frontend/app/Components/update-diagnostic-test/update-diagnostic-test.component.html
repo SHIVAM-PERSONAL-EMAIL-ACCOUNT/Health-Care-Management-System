@@ -1,0 +1,26 @@
+<div  class="container">
+
+    <div class = "text-center">      
+        <h2 class="display-4"> Modify Test Details </h2>
+    </div>
+
+    <form #form="ngForm" (ngSubmit)="onSubmit()" class="form-group"> 
+        <input required  type="text" width="20" name="name" [(ngModel)]="test.testName" placeholder="Name" class="form-control" value="test.testName"/><br>
+        <input required   type="number" width="20"  name="normalValue" [(ngModel)]="test.testPrice" placeholder="Price" class="form-control" value="test.testPrice"/> <br>
+        <input required   type="text" width="20"  name="units" [(ngModel)]="test.normalValue" placeholder="Normal Value" class="form-control" value="test.normalValue"/> <br>
+        <input required   type="text" width="20"  name="units" [(ngModel)]="test.units" placeholder="Units" class="form-control" value="test.units"/> <br>
+        <input required   type="text" width="20"  name="reading" [(ngModel)]="test.diagnosticTestReading" placeholder="Result Reading (Optional)" class="form-control" value="test.diagnosticTestReading"/> <br>
+        <input required   type="text" width="20"  name="condition" [(ngModel)]="test.condition" placeholder="Condition" class="form-control (Optional)" value="test.condition"/> <br>
+
+        <div *ngIf="form.invalid && form.touched"  class="alert alert-danger">
+            Enter Valid Data
+          </div> 
+          <div class="col-md-12 text-center">
+            <button class="btn btn-primary" [disabled]="!form.valid" type="submit"> Submit </button>
+          </div>
+    </form>
+</div>
+
+
+
+

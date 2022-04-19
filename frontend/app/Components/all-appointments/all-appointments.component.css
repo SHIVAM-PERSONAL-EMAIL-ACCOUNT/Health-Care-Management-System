@@ -1,0 +1,55 @@
+.navbar {
+    width: 100%;
+    background-color: #555;
+    overflow: auto;
+  }
+  
+  /* Navigation links */
+  .navbar h4 {
+    float: left;
+    padding: 12px;
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+    width: 20%; /* Four equal-width links. If you have two links, use 50%, and 33.33% for three links, etc.. */
+    text-align: center; /* If you want the text to be centered */
+  }
+  
+  /* Add responsiveness - on screens less than 500px, make the navigation links appear on top of each other, instead of next to each other */
+  @media screen and (max-width: 500px) {
+    .navbar h4 {
+      float: none;
+      display: block;
+      width: 100%;
+      text-align: left; /* If you want the text to be left-aligned on small screens */
+    }
+  }
+
+  #content{
+    position:absolute;
+    top:100px;
+  }
+
+  table {
+    width: 100%
+  }
+
+  #create {
+    float: right;
+  }
+
+  .wrap-flex {
+    display: flex;
+    width: 100%;
+    /* OPTIONAL ALIGNMENT: flex-start | flex-end | center | baseline | stretch */
+    align-items: center;
+  }
+   
+  /* (A2) NOT IMPORTANT, JUST TO BETTER SHOW HOW ALIGN-ITEMS WORK */
+  .wrap-flex > * {
+    width: 100%;
+  }
+
+  #tex {
+    text-align: center;
+    }

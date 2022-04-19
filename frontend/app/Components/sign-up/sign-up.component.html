@@ -1,0 +1,22 @@
+<div  class="container">
+
+  <div class = "text-center lead">
+    <h5 class = "display-4"><b>Sign Up</b></h5>
+  </div>
+  <br>
+  <div class = "text-center lead">
+    <p class = "lead">Enter your details</p>
+  </div>
+
+  <form #form="ngForm" (ngSubmit)="onSubmit()" class="form-group"> 
+          <input  type="text" width="20"  name="username" required [(ngModel)]="admin.username" placeholder="Username" class="form-control"/> <br>
+          <input  type="text" width="20"  name="password" required [(ngModel)]="admin.password" placeholder="Password" class="form-control"/> <br>
+          
+          <div *ngIf="form.invalid && form.touched"  class="alert alert-danger">
+            Enter Valid Data
+          </div> 
+          <div class="col-md-12 text-center">
+          <button class="btn btn-primary" [disabled]="!form.valid" type="submit"> Submit </button>
+          </div>
+  </form>
+</div>

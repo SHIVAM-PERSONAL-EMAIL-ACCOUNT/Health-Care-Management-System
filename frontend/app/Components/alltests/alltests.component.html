@@ -1,0 +1,55 @@
+<div class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <h4><button type="button" (click)="toPatients()" class="btn btn-outline-dark">Patients Dashboard</button></h4>
+    <h4><button type="button" (click)="toAppointments()" class="btn btn-outline-dark">Appointments Dashboard</button></h4>
+    <h4><button type="button" (click)="toTests()" class="btn btn-outline-dark">Tests Dashboard</button></h4>
+    <h4><button type="button" (click)="toCenters()" class="btn btn-outline-dark">Center Dashboard</button></h4>
+    <h4><button type="button" (click)="toHome()" class="btn btn-outline-dark">Log Out</button></h4>
+</div>
+<br><br><br>
+
+<div *ngIf = "display"  class="container">
+    <br><br><br><br><br>
+    <div>
+        <h1 class = "display-3" id = "tex">No Diagnostic Tests</h1>
+    </div>
+    <br>
+    <div class="col-md-12 text-center">
+        <button type="button" class="btn btn-primary" (click)="createTest()">Create Diagnostic Test</button>
+    </div>
+    </div>
+
+<div class="container" id="content" *ngIf = "!display">
+    <div class="wrap-flex">
+        <h3 class="display-4">Test Details</h3>
+        <button id="create" type="button" class="btn btn-primary" (click)="createTest()">Create Test</button>
+    </div>
+    <br>
+    <table class="table" style="margin: 0px;">
+        <thead class="thead-dark">
+        <tr>
+            <th>Test ID</th>
+            <th>Test Name</th>
+            <th>Test Price</th>
+            <th>Normal Value</th>
+            <th>Units</th>
+            <th>Test Result Reading</th>
+            <th>Test Result Condition</th>
+            <th colspan="2" style="text-align:center;">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let test of tests">
+            <td>{{test.id}}</td>
+            <td>{{test.testName}}</td>
+            <td>{{test.testPrice}}</td>
+            <td>{{test.normalValue}}</td>
+            <td>{{test.units}}</td>
+            <td>{{test.diagnosticTestReading}}</td>
+            <td>{{test.condition}}</td>
+            <td><button type="button" (click)="updateTest(test.id)" class="btn btn-info">Update</button></td>
+            <td><button type="button" (click)="deleteTest(test.id)" class="btn btn-danger">Delete</button></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+

@@ -1,0 +1,22 @@
+<div  class="container">
+
+    <div class = "text-center">      
+        <h2 class="display-4"> Enter Appointment Details </h2>
+    </div>
+    <br>
+
+    <form #form="ngForm" (ngSubmit)="onSubmit(form, centerId, testId, patientId)" class="form-group"> 
+            <input required type="text" width="20"  name="approvalStatus" [(ngModel)]="appointment.approvalStatus" placeholder="Approval Status (Optional)" class="form-control" value="appointment.approvalStatus"/> <br>
+            <input required type="text" width="20"  name="centerId" [(ngModel)]="appointment.diagnosticCenter.id" placeholder="Center ID" class="form-control" value="appointment.diagnosticCenter.id" #centerId/> <br>
+            <input required type="text" width="20"  name="testId" [(ngModel)]="appointment.diagnosticTest.id" placeholder="Test ID" class="form-control" value="appointment.diagnosticTest.id" #testId> <br>
+            <input required type="text" width="20"  name="patientId" [(ngModel)]="appointment.patient.patientId" placeholder="Patient ID" class="form-control" value="appointment.patient.patientId" #patientId> <br>
+
+            <div *ngIf="(form.invalid && form.touched) || flag"  class="alert alert-danger">
+                Enter Valid Data
+              </div> 
+              <div class="col-md-12 text-center">
+                <button class="btn btn-primary" [disabled]="!form.valid" type="submit"> Submit </button>
+              </div>
+    </form>
+</div>
+

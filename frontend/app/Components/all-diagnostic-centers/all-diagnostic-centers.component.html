@@ -1,0 +1,48 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <h4><button type="button" (click)="toPatients()" class="btn btn-outline-dark">Patients Dashboard</button></h4>
+    <h4><button type="button" (click)="toAppointments()" class="btn btn-outline-dark">Appointments Dashboard</button></h4>
+    <h4><button type="button" (click)="toTests()" class="btn btn-outline-dark">Tests Dashboard</button></h4>
+    <h4><button type="button" (click)="toCenters()" class="btn btn-outline-dark">Center Dashboard</button></h4>
+    <h4><button type="button" (click)="toHome()" class="btn btn-outline-dark">Log Out</button></h4>
+    </nav>
+<br><br><br><br>
+
+<div *ngIf = "display" class="container">
+<br><br><br><br><br>
+<div>
+    <h1 class = "display-3" id = "tex">No Diagnostic Centers</h1>
+</div>
+<br>
+<div class="col-md-12 text-center">
+    <button type="button" class="btn btn-primary" (click)="createCenter()">Create Diagnostic Center</button>
+</div>
+</div>
+
+<div class="container" *ngIf = "!display">
+    <div class="wrap-flex">
+        <h3 class="display-4">Diagnostic Center Details</h3>
+        <button id="create" type="button" class="btn btn-primary" (click)="createCenter()">Create Diagnostic Center</button>
+    </div>
+    <br>
+    <table class="table" style="margin: 0px;" >
+        <thead class="thead-dark">
+        <tr>
+            <th>Diagnostic Center ID</th>
+            <th>Diagnostic Center Name</th>
+            <th>Diagnostic Center Contact No</th>
+            <th>Diagnostic Center Address</th>
+            <th>Diagnostic Center Contact Email</th>
+            <th colspan="2" style="text-align:center;">Actions</th>
+        </tr>
+        </thead>
+        <tr *ngFor="let center of diagnosticCenters">
+            <td>{{center.id}}</td>
+            <td>{{center.name}}</td>
+            <td>{{center.contactNo}}</td>
+            <td>{{center.address}}</td>
+            <td>{{center.contactEmail}}</td>
+            <td><button type="button" (click)="updateCenter(center.id)" class="btn btn-info">Update</button></td>
+            <td><button type="button" (click)="deleteCenter(center.id)" class="btn btn-danger">Delete</button></td>
+        </tr>
+    </table>
+</div>

@@ -1,0 +1,28 @@
+<div class="container">   
+<div class = "text-center">
+<h2 class = "display-4">Welcome to Health Care Management System</h2>
+</div>
+<br>
+<div class = "text-center">
+<h6 class ="lead">Enter your Login Credentials below</h6>
+</div>
+<br>
+<form>     
+        <input class = "form-control" type="text" placeholder="Username" [(ngModel)]="admin.username" name="Username" required>
+        <br>
+        <input class = "form-control"  type="password" placeholder="Password" [(ngModel)]="admin.password" name="Password" required>  
+        <br>
+        <div *ngIf="errFlag" class="alert alert-danger">
+            <span>Invalid Username or Password</span>
+        </div>
+        <br>
+        <div class="col-md-12 text-center">
+        <button class="btn btn-primary" (click)="validate()">Login</button>   
+        </div>
+        <br>
+        <p class="message col-md-12 text-center lead">Not registered? <a [routerLink]="['/sign-up']">Create an account</a></p>  
+</form> 
+</div>
+
+
+

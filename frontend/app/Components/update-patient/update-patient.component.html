@@ -1,0 +1,21 @@
+<div  class="container">
+
+    <div class = "text-center">      
+        <h2 class="display-4"> Modify Patient Details </h2>
+    </div>
+    <br>
+
+    <form #form="ngForm" (ngSubmit)="onSubmit()" class="form-group"> 
+            <input required  type="text" width="20" name="patient.name" [(ngModel)]="patient.name" placeholder="Name" class="form-control" value="patient.name"/><br>
+            <input required   type="text" width="20"  name="patient.phoneNo" [(ngModel)]="patient.phoneNo" placeholder="Phone No" class="form-control" value="patient.phoneNo"/> <br>
+            <input required   type="number" width="20"  name="patient.age" [(ngModel)]="patient.age" placeholder="Age" class="form-control" value="patient.age"/> <br>
+            <input required   type="text" width="20"  name="patient.gender" [(ngModel)]="patient.gender" placeholder="Gender" class="form-control" value="patient.gender"/> <br>
+        
+            <div *ngIf="form.invalid && form.touched"  class="alert alert-danger">
+                Enter Valid Data
+              </div> 
+              <div class="col-md-12 text-center">
+                <button class="btn btn-primary" [disabled]="!form.valid" type="submit"> Submit </button>
+              </div>
+    </form>
+</div>

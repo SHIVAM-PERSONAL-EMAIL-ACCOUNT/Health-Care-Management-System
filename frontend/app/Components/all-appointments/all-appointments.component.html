@@ -1,0 +1,51 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <h4><button type="button" (click)="toPatients()" class="btn btn-outline-dark">Patients Dashboard</button></h4>
+    <h4><button type="button" (click)="toAppointments()" class="btn btn-outline-dark">Appointments Dashboard</button></h4>
+    <h4><button type="button" (click)="toTests()" class="btn btn-outline-dark">Tests Dashboard</button></h4>
+    <h4><button type="button" (click)="toCenters()" class="btn btn-outline-dark">Center Dashboard</button></h4>
+    <h4><button type="button" (click)="toHome()" class="btn btn-outline-dark">Log Out</button></h4>
+    </nav>
+<br><br><br><br>
+
+<div *ngIf = "display"  class="container">
+    <br><br><br><br><br>
+    <div>
+        <h1 class = "display-3" id = "tex">No Appointments</h1>
+    </div>
+    <br>
+    <div class="col-md-12 text-center">
+        <button type="button" class="btn btn-primary" (click)="createAppointment()">Create Appointment</button>
+    </div>
+    </div>
+
+<div class="container" *ngIf = "!display">
+    <div class="wrap-flex">
+        <h3 class="display-4">Appointment Details</h3>
+        <button id="create" type="button" class="btn btn-primary" (click)="createAppointment()">Create Appointment</button>
+    </div>
+    <br>
+    <table class="table" style="margin: 0px;" >
+        <thead class="thead-dark">
+        <tr>
+            <th>Appointment ID</th>
+            <th>Appointment Date</th>
+            <th>Appointment Status</th>
+            <th>Diagnostic Center ID</th>
+            <th>Diagnostic Test ID</th>
+            <th>Patient ID</th>
+            <th colspan="2" style="text-align:center;">Actions</th>
+        </tr>
+        </thead>
+        <tr *ngFor="let appointment of appointments">
+            <td>{{appointment.id}}</td>
+            <td>{{appointment.appointmentDate}}</td>
+            <td>{{appointment.approvalStatus}}</td>
+            <td>{{appointment.diagnosticCenter.id}}</td>
+            <td>{{appointment.diagnosticTest.id}}</td>
+            <td>{{appointment.patient.patientId}}</td>
+            <td><button type="button" (click)="updateAppointment(appointment.id)" class="btn btn-info">Update</button></td>
+            <td><button type="button" (click)="deleteAppointment(appointment.id)" class="btn btn-danger">Delete</button></td>
+        </tr>
+    </table>
+</div>
+
